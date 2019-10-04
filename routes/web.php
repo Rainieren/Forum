@@ -30,6 +30,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 // TODO: checken of de user die inglogt is gelijk is aan het topic_id. Is dat niet zo. editen niet mogelijk
 Route::get('/theme/{theme_id}/topic/{topic_id}/edit', 'TopicsController@edit')->name('edittopic');
 Route::patch('/theme/{theme_id}/topic/{topic_id}/edit', 'TopicsController@update')->name('updatetopic');
+Route::delete('/topic/delete/{id}', 'TopicsController@destroy')->name('deletetopic');
 
 
 Route::get('/theme/{theme_id}/topic/create', 'TopicsController@create')->name('createtopic');
@@ -50,7 +51,9 @@ Route::patch('{username}/profile/update', 'UserController@update')->name('update
 Route::get('user/settings', 'UserController@settings')->name('showusersettings');
 
 //REPLIES
-route::post('/reply/create', 'ReplyController@store')->name('createreply');
+Route::post('/reply/create', 'ReplyController@store')->name('createreply');
+Route::delete('/reply/delete/{id}', 'ReplyController@destroy')->name('deletereply');
+
 
 
 // Ik wil forem.dev/theme/1 En dan alle topcis laten zien van die theme. dat is een GET en SHOW method

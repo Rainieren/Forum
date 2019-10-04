@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Theme;
 use App\Topic;
+use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,6 +33,7 @@ class TopicsController extends Controller
      */
     public function create($theme_id)
     {
+        Carbon::setLocale('nl');
         $theme = Theme::with('topics')->findOrFail($theme_id);
         //$topic = Topic::with('theme')->findOrFail($topic_id);
 
@@ -47,6 +49,7 @@ class TopicsController extends Controller
     public function store(Request $request)
     {
 
+        Carbon::setLocale('nl');
         Topic::create($request->input()); //Dit doet hetzelfde als bovenstaande
 
         return redirect()->route('showtheme', ['theme_id' => $request->input('theme_id')]);
@@ -60,6 +63,7 @@ class TopicsController extends Controller
      */
     public function show($theme_id, $topic_id)
     {
+        Carbon::setLocale('nl');
         $theme = Theme::with('topics')->findOrFail($theme_id);
         $topic = Topic::with('theme')->findOrFail($topic_id);
 
@@ -98,6 +102,12 @@ class TopicsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $topic = Topic::find($id);
+
+        $topic->replies()->delete();
+
+        $topic->delete();
+
+        return redirect('/');
     }
 }

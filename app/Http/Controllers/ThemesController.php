@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Reply;
 use App\Theme;
 use App\Topic;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ThemesController extends Controller
@@ -15,9 +17,13 @@ class ThemesController extends Controller
      */
     public function index()
     {
-        $themes = Theme::all();
+        Carbon::setLocale('nl');
+        $topics = Theme::with('topics', 'lastTopic.user')->get();
 
-        return view('themes.index')->with('themes', $themes);
+        $themes = Theme::all();
+//        $topics = Topic::with('theme', 'lastTopic.user')->get()->find($id);
+
+        return view('themes.index')->with('themes', $themes)->with('topics', $topics);
     }
 
     /**
@@ -43,7 +49,7 @@ class ThemesController extends Controller
         return redirect('/');
     }
 
-    /**
+    /**j
      * Display the specified resource.
      *
      * @param  int  $id
@@ -51,7 +57,10 @@ class ThemesController extends Controller
      */
     public function show($id)
     {
-        $topics = Topic::with('theme')->find($id);
+        Carbon::setLocale('nl');
+        $topics = Topic::with('theme', 'lastReply.user')->get()->find($id);
+
+
         $theme = Theme::with('topics')->find($id);
 
         return view('themes.theme')->with('topics', $topics)->with('theme', $theme);
@@ -88,6 +97,6 @@ class ThemesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $theme = Theme::find($id);
     }
 }

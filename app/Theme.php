@@ -18,5 +18,11 @@ class Theme extends Model
         return $this->hasMany('App\Topic');
     }
 
+    public function lastTopic()
+    {
+        return $this->hasOne(Topic::class)->latest();
+    }
+
+
 
 }

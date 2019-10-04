@@ -19,4 +19,8 @@ $(document ).ready(function() {
         alignment: 'right'
     });
 
+    $('#tabs-swipe-demo').tabs({
+        swipeable: true,
+        onShow: true
+    });
 });

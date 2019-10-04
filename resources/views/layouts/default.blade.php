@@ -27,11 +27,11 @@
 
 <body>
 
-<ul id="slide-out" class="side-nav">
+<ul id="slide-out" class="side-nav grey darken-4 white-text">
     <li><div class="userView">
             @if(Auth::check())
             <div class="background">
-                <img src="{{ asset('img/backgroundprofile.jpg') }}" style="height: 100%; width: 100%;">
+                <img src="/uploads/banners/{{ Auth::user()->banner }}" style="height: 100%; width: 100%;">
             </div>
             <a href=""><img class="circle" src="/uploads/avatars/{{ Auth::user()->avatar }}"></a>
             <a href="#"><span class="white-text name">{{ Auth::user()->username }}@if(Auth::check() && Auth::user()->isAdmin())<i class="material-icons verified">verified_user</i>@elseif(Auth::check() && Auth::user()->isModerator())<i class="material-icons mod">supervisor_account</i>@endif</span></a>
@@ -68,7 +68,7 @@
                         <li><a href="{{ url('/register') }}">Register</a></li>
                         <li><a href="{{ url('/login') }}">Sign in</a></li>
                     @else
-                        <li><a class="dropdown-button" href="#" data-activates="dropdown1"><img src="/uploads/avatars/{{ Auth::user()->avatar }}" class="circle" style="height: 32px;width: 32px;position: relative;right: 10px;top: 9px;">{{ Auth::user()->username }}<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-button" href="#" data-activates="dropdown1"><img src="/uploads/avatars/{{ Auth::user()->avatar }}" class="circle" style="height: 32px;width: 32px;position: relative;right: 10px;top: 9px;">{{ Auth::user()->username }}<i class="material-icons right">expand_more</i></a></li>
                     </ul>
                     <ul id="dropdown1" class="dropdown-content">
                         <li><a href="{{ route('showprofile', ['username' => Auth::user()->username]) }}"><i class="medium material-icons left">perm_identity</i>Profile</a></li>
@@ -88,7 +88,7 @@
 
 @yield('content')
 
-<footer class="page-footer">
+<footer class="page-footer" style="background-color: #212121">
     <div class="container">
         <div class="row">
             <div class="col l6 m6">
@@ -114,7 +114,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright" style="background-color: #37474f;">
+    <div class="footer-copyright" style="background-color: black;">
         <div class="container">
             &copy; 2017 Rainier laan, All Rights Reserverd
             <a class="grey-text text-lighten-4 right" href="#modal1";>License Agreement</a>

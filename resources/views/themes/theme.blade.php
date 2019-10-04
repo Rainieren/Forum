@@ -14,6 +14,7 @@
             @endif
 
             <div class="col s12">
+
                 <div class="card">
                     <div class="card-content"><span class="card-title">{{ $theme->theme_title }} - Topics</span>
                             @if($theme->topics->count() == 0)
@@ -37,7 +38,7 @@
                                                 </div>
                                             </div>
                                             <div class="row last-row">
-                                                <div class="col s12 post-timestamp">Posted by: {{ $topic->user->username }} on: {{  $topic->created_at }}</div>
+                                                <div class="col s12 post-timestamp">Posted by: {{ $topic->user->username }} {{  $topic->created_at->diffForHumans() }}</div>
                                             </div>
                                         </div>
                                         <div class="col s2">
@@ -52,8 +53,13 @@
                                         </div>
                                         <div class="col s2">
                                             <h6 class="title center-align">Last reply</h6>
-                                            <p class="center-align">Naam</p>
-                                            <p class="center-align">Tijd</p>
+                                            @if($topic->lastReply)
+                                            <p class="center-align">{{ $topic->lastReply->user->username }}</p>
+                                            <p class="center-align">{{ $topic->lastReply->created_at->diffForHumans() }}</p>
+                                            @else
+                                            <p class="center-align" style="color: grey; font-style: italic">No replies</p>
+                                                <p class="center-align" style="color: grey; font-style: italic">yet</p>
+                                            @endif
                                         </div>
                                     </div>
                                 </a>
@@ -63,7 +69,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
+        </div>
 
                 @if(Auth::check())
                     <div class="col s12">

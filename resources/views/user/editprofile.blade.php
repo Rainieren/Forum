@@ -18,7 +18,9 @@
                                             <div class="row">
                                                 <div class="col s12 form-group">
                                                     <label for="message-body textarea1">About me</label>
-                                                    <textarea id="message-body textarea1" class="form-control materialize-textarea" name="user_about" placeholder="Type something about yourself" data-length="255">{{ $user->user_about }}</textarea>
+                                                    <textarea id="message-body textarea1" class="form-control materialize-textarea" name="user_about" placeholder="Type something about yourself" data-length="255">
+                                                        {{ $user->user_about }}
+                                                    </textarea>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -31,8 +33,6 @@
                                 </div>
                             </div>
                         </div>
-
-
 
                             <span class="card-title">Change your photo's</span>
                             <h6>Change your profile picture</h6>
@@ -66,24 +66,10 @@
                                 </div>
                             </div>
 
-                        </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @stop
-
-{{--<form enctype="multipart/form-data" action="profile" method="POST">--}}
-    {{--<input type="file" name="avatar">--}}
-    {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-    {{--<input type="submit" class="pull-right btn btn-primary" value="Change profile">--}}
-{{--</form>--}}
-
-{{--<form enctype="multipart/form-data" action="profile" method="POST">--}}
-    {{--<input type="file" name="banner">--}}
-    {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-    {{--<input type="submit" class="pull-right btn btn-primary" value="Change banner">--}}
-{{--</form>--}}
 

@@ -39,13 +39,14 @@
                         @endif
                     </div>
                 </div>
+
             </div>
             <!--/ profile-page-header -->
         </div>
 
             <div class="row">
                 <div class="col l5 m5 s5">
-                    <div class="card red">
+                    <div class="card blue darken-1">
                         <div class="card-content white-text">
                             <span class="card-title">About me</span>
                             <p>{{ $user->user_about }}</p>
@@ -69,7 +70,7 @@
                             <div class="card-content">
                                 <span class="card-title">Last Topic</span>
                                 <h6>{{ $user->topics->sortBydesc('id')->first()->topic_title }}</h6>
-                                <p>{{ $user->topics->sortBydesc('id')->first()->topic_text }}</p>
+                                <p>{!!  str_limit($user->topics->sortBydesc('id')->first()->topic_text, $limit = 255, $end = '...') !!}</p>
                             </div>
                             <div class="card-action right-align">
                                 <a href="" class="blue-grey-text text-darken-4">Go to topic</a>
@@ -93,7 +94,7 @@
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Last Reply</span>
-                                <p>{{ $user->replies->sortBydesc('id')->first()->reply_text }}</p>
+                                <p>{{ str_limit($user->replies->sortBydesc('id')->first()->reply_text, $limit = 255, $end = '...') }}</p>
                             </div>
                             <div class="card-action right-align">
                                 <a href="" class="blue-grey-text text-darken-4">Go to reply</a>

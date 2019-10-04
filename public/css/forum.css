@@ -205,7 +205,7 @@ span.glyphicon.glyphicon-chevron-down.dropdownarrow {
 }
 
 .nav-wrapper {
-    background-color: #263238;
+    background-color: black;
 }
 
 .verified {
@@ -213,7 +213,7 @@ span.glyphicon.glyphicon-chevron-down.dropdownarrow {
 }
 
 .nav-wrapper li > a {
-    color: #9e9e9e;
+    color: white;
 }
 
 .nav-wrapper li > a:hover {
@@ -226,11 +226,19 @@ span.glyphicon.glyphicon-chevron-down.dropdownarrow {
 }
 
 .dropdown-content li > a {
-    background-color: #37474f;
+    background-color: #212121;
 }
 
 .dropdown-content li > a:hover {
-    background-color: #263238;
+    background-color: black;
+}
+
+.side-nav li > a {
+    color: white;
+}
+
+.side-nav .material-icons {
+    color: white;
 }
 
 button.formbuttons {
@@ -361,6 +369,151 @@ button.formbuttons:hover {
     border-radius: 500px;
     -webkit-border-radius: 500px;
     -moz-border-radius: 500px;
+
+}
+.tabs .tab a{
+    color:#000;
+} /*Black color to the text*/
+
+.tabs .tab a:hover {
+    background-color:#eee;
+    color:#000;
+} /*Text color on hover*/
+
+.tabs .tab a.active {
+    color:#000;
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    background-color: blue;
+} /*Color of underline*/
+
+.comment-form-bubble {
+    display: inline-block;
+    position: relative;
+    margin-left: 30px;
+    font-family: inherit;
+}
+
+.comment-form-bubble:before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    width: 0;
+    height: 0;
+    border-bottom: 13px solid transparent;
+    border-right: 13px solid #A9A9A9
+}
+
+.comment-form-bubble:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 0;
+    height: 0;
+
+    border-bottom: 11px solid transparent;
+    border-right: 11px solid #ffffff;
+}
+
+.button-xs-danger {
+    padding: 1px 5px;
+    font-size: 12px;
+    border-radius: 3px;
+    background-color: #bf5329;
+    border-color: #aa4a24;
+    line-height: 22px;
+    height: 22px;
+    margin-left: 1em;
+}
+
+.button-xs-danger:hover {
+    background-color: #bf3727;
+}
+
+.button-xs-neutral {
+    padding: 1px 5px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: grey;
+    background-color: #DDDDDD;
+    border-color: #aa4a24;
+    line-height: 22px;
+    height: 22px;
+    margin-left: 1em;
+}
+
+.button-xs-neutral:hover {
+    background-color: #b4b4b4;
+}
+
+.link-icon-color-black {
+    color: black;
+}
+
+.button-normaltext {
+    font-style: normal;
+}
+
+.nothing-display-text {
+    font-style: italic;
+    color: grey
+}
+
+.not-loggedin-text {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.administrator-label-topic {
+    color: white;
+    background-color: #008BEC;
+    padding: 1px;
+    border-radius: 25px;
+    width: 111px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+    position: relative;
+    right: 75px;
+    bottom: 2px;
+}
+
+.moderator-label {
+    color: white;
+    background-color: #bf5329;
+    padding: 1px;
+    border-radius: 25px;
+    width: 90px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+    position: relative;
+    right: 97px;
+    bottom: 2px;
+}
+
+.moderator-label > p {
+    color: white;
+}
+
+.customfield > textarea {
+    border: 2px solid #009BCE;
+    height: 7rem;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 15px;
+}
+
+.customfield > textarea:focus {
+    outline: none;
+    box-shadow: 0px 0px 3px #009BCE;
+}
+
+.answeringbutton {
+    margin-top: 5px;
+    border-radius: 20px;
 
 }
 

@@ -4,7 +4,7 @@
 
     <div class="container first-container">
         <div class="row">
-            <div class="col s12">
+            <div class="col">
                 <div class="card">
                     <div class="card-content"><span class="card-title">Themes</span>
                         <div class="collection">
@@ -28,9 +28,14 @@
                                                 <p class="center-align">{{ $theme->topics->count() }} topic(s)</p>
                                             </div>
                                             <div class="col s2">
-                                                <h6 class="title center-align">Laatste topic</h6>
-                                                <p class="center-align">Basuds</p>
-                                                <p class="center-align">30-12-2015 19:00</p>
+                                                <h6 class="title center-align">Last topic</h6>
+                                                @if($theme->lastTopic)
+                                                <p class="center-align">{{ $theme->lastTopic->user->username }}</p>
+                                                <p class="center-align">{{ $theme->lastTopic->created_at->diffForHumans() }}</p>
+                                                @else
+                                                    <p class="center-align" style="color: grey; font-style: italic">No Topics</p>
+                                                    <p class="center-align" style="color: grey; font-style: italic">yet</p>
+                                                @endif
                                             </div>
                                     </div>
                                 </a>
